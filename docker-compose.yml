@@ -1,0 +1,20 @@
+
+version: '3'
+
+
+services:
+    db:
+     image: mysql
+     restart: always
+     environment:
+        -  MYSQL_DATABASE=hvv
+        -  MYSQL_ROOT_PASSWORD=user1!
+     volumes:
+      - ./databases:/var/lib/mysql
+      - ./databases:/etc/mysql/conf.d
+    adminer:
+       image: adminer
+       restart: always
+
+    test:
+       build: ./test
